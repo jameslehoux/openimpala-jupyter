@@ -30,7 +30,7 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
 RUN export VERSION=3.4.0 && \
         wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
         tar -xzf v${VERSION}.tar.gz
-WORKDIR singularity 
+WORKDIR ./singularity 
 RUN ls
 RUN ./mconfig && \
     make -C builddir && \
