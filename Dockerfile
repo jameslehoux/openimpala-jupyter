@@ -28,7 +28,7 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
 
 #install singularity
 RUN export VERSION=3.4.0 && \
-        wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+        wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
         rpmbuild -tb singularity-${VERSION}.tar.gz && \
         sudo rpm -ivh ~/rpmbuild/RPMS/x86_64/singularity-$VERSION-1.el7.x86_64.rpm && \
         rm -rf ~/rpmbuild singularity-$VERSION*.tar.gz
