@@ -21,10 +21,10 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
         wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
         tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
         rm go$VERSION.$OS-$ARCH.tar.gz      
-RUN echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
+ && echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
         echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
         . ~/.bashrc
-RUN go get -u github.com/golang/dep/cmd/dep
+ && go get -u github.com/golang/dep/cmd/dep
 
 # create user with a home directory
 ARG NB_USER
