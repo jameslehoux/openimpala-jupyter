@@ -3,6 +3,19 @@ FROM python:3.7-slim
 RUN pip install --no-cache --upgrade pip && \
     pip install --no-cache notebook
 
+#install singularity dependencies
+RUN sudo apt-get update && sudo apt-get install -y \
+    build-essential \
+    libssl-dev \
+    uuid-dev \
+    libgpgme-dev \
+    squashfs-tools \
+    libseccomp-dev \
+    wget \
+    pkg-config \
+    git \
+    cryptsetup-bin
+
 # create user with a home directory
 ARG NB_USER
 ARG NB_UID
