@@ -15,6 +15,16 @@ RUN apt-get update && apt-get install -y \
     pkg-config \
     git \
     cryptsetup-bin
+    
+#install go
+RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
+        wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
+        tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
+        rm go$VERSION.$OS-$ARCH.tar.gz      
+RUN echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
+        echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
+        source ~/.bashrc
+RUN go get -u github.com/golang/dep/cmd/dep
 
 # create user with a home directory
 ARG NB_USER
