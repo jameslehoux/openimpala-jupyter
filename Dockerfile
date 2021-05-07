@@ -31,7 +31,7 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
     wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
     tar -xzf v${VERSION}.tar.gz && \
     cd ./singularity-3.4.0 && \
-    ./mconfig && \
+    ./mconfig -V ${VERSION} && \
     make -C ./builddir && \
     make -C ./builddir install
     
