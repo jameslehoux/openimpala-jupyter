@@ -30,8 +30,8 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
 RUN export VERSION=3.4.0 && \
     mkdir -p $GOPATH/src/github.com/sylabs && \
     cd $GOPATH/src/github.com/sylabs && \
-    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
-    tar -xzf singularity-${VERSION}.tar.gz && \
+    wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
+    tar -xzf v${VERSION}.tar.gz && \
     cd ./singularity && \
     ./mconfig
     
