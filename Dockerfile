@@ -26,15 +26,18 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
         . ~/.bashrc \
  && go get -u github.com/golang/dep/cmd/dep
 
-#install singularity
+#install singularity  
 RUN export VERSION=3.4.0 && \
-        wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
-        tar -xzf v${VERSION}.tar.gz
-WORKDIR ./singularity 
-RUN ls
+    mkdir -p $GOPATH/src/github.com/sylabs && \
+    cd $GOPATH/src/github.com/sylabs && \
+    wget https://github.com/sylabs/singularity/releases/download/v${VERSION}/singularity-${VERSION}.tar.gz && \
+    tar -xzf singularity-${VERSION}.tar.gz && \
+    cd ./singularity && \
+    ./mconfig
+    
 RUN ./mconfig && \
-    make -C builddir && \
-    make -C builddir install
+    make -C ./builddir && \
+    make -C ./builddir install
     
 # create user with a home directory
 ARG NB_USER
