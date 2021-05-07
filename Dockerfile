@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
     git \
     cryptsetup-bin
     
-#install go
+#install go and singularity
 RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
         wget https://dl.google.com/go/go$VERSION.$OS-$ARCH.tar.gz && \
         tar -C /usr/local -xzvf go$VERSION.$OS-$ARCH.tar.gz && \
@@ -24,10 +24,8 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
  && echo 'export GOPATH=${HOME}/go' >> ~/.bashrc && \
         echo 'export PATH=/usr/local/go/bin:${PATH}:${GOPATH}/bin' >> ~/.bashrc && \
         . ~/.bashrc \
- && go get -u github.com/golang/dep/cmd/dep
-
-#install singularity  
-RUN export VERSION=3.4.0 && \
+ && go get -u github.com/golang/dep/cmd/dep \
+ && export VERSION=3.4.0 && \
     mkdir -p $GOPATH/src/github.com/sylabs && \
     cd $GOPATH/src/github.com/sylabs && \
     wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
