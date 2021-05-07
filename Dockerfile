@@ -32,9 +32,7 @@ RUN export VERSION=3.4.0 && \
     cd $GOPATH/src/github.com/sylabs && \
     wget https://github.com/sylabs/singularity/archive/refs/tags/v${VERSION}.tar.gz && \
     tar -xzf v${VERSION}.tar.gz && \
-    ls
-    
-RUN cd ./singularity && \
+    cd ./singularity-3.4.0 && \
     ./mconfig && \
     make -C ./builddir && \
     make -C ./builddir install
