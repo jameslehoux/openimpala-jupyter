@@ -54,5 +54,5 @@ RUN pip install numpy cython
 RUN git clone https://github.com/jameslehoux/yt && \
     cd yt && \
     git checkout main && \
-    pip install . --user --install-option="--prefix="
+    pip install . 
 
