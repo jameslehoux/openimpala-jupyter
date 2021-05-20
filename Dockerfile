@@ -35,8 +35,6 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
     make -C ./builddir && \
     make -C ./builddir install
 
-#install yt visualisation
-RUN pip install yt
 
 # create user with a home directory
 ARG NB_USER
@@ -50,3 +48,7 @@ RUN adduser --disabled-password \
     ${NB_USER}
 WORKDIR ${HOME}
 USER ${USER}
+
+#install yt visualisation
+RUN pip install --upgrade --user distribute
+RUN pip install --user yt
