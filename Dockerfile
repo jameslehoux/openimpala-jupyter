@@ -50,5 +50,9 @@ WORKDIR ${HOME}
 USER ${USER}
 
 #install yt visualisation
-RUN pip install --user 'yt==3.4.1'
+RUN pip install numpy cython
+RUN git clone https://github.com/jameslehoux/yt && \
+    cd yt && \
+    git checkout master && \
+    pip install . --user --install-option="--prefix="
 
