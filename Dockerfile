@@ -50,9 +50,14 @@ WORKDIR ${HOME}
 USER ${USER}
 
 #install yt visualisation
-RUN pip install numpy cython
+RUN pip install numpy cython h5py
 RUN git clone https://github.com/jameslehoux/yt && \
     cd yt && \
     git checkout main && \
-    pip install . 
+    pip install .
+
+#download test datasets for yt
+RUN wget https://yt-project.org/data/IsolatedGalaxy.tar.gz && \
+    tar -xvzf IsolatedGalaxy.tar.gz
+
 
