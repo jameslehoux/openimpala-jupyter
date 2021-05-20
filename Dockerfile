@@ -50,5 +50,5 @@ WORKDIR ${HOME}
 USER ${USER}
 
 #install yt visualisation
-RUN pip install --upgrade --user distribute
-RUN pip install --user yt
+RUN pip install --user 'yt==3.6.1'
+
