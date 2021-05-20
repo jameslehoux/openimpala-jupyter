@@ -53,6 +53,6 @@ USER ${USER}
 RUN pip install numpy cython
 RUN git clone https://github.com/jameslehoux/yt && \
     cd yt && \
-    git checkout master && \
+    git checkout main && \
     pip install . --user --install-option="--prefix="
 
