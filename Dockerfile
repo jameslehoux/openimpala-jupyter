@@ -57,10 +57,6 @@ RUN git clone https://github.com/jameslehoux/yt && \
     git checkout main && \
     pip install .
 
-#download test datasets for yt
-RUN wget https://yt-project.org/data/IsolatedGalaxy.tar.gz && \
-    tar -xvzf IsolatedGalaxy.tar.gz
-
 #download test datasets for OpenImpala
 RUN git clone https://github.com/jameslehoux/openimpala-jupyter
 
