@@ -60,3 +60,5 @@ RUN git clone https://github.com/jameslehoux/yt && \
 #download test datasets for OpenImpala
 RUN git clone https://github.com/jameslehoux/openimpala-jupyter
 
+RUN conda install -c conda-forge jupyterhub-singleuser 
+
