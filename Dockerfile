@@ -50,6 +50,8 @@ RUN export VERSION=1.11 OS=linux ARCH=amd64 && \
     make -C ./builddir && \
     make -C ./builddir install
 
+RUN pip3 install jupyter
+
 
 # create user with a home directory
 ARG NB_USER
@@ -57,10 +59,10 @@ ARG NB_UID
 ENV USER ${NB_USER}
 ENV HOME /home/${NB_USER}
 
-RUN adduser --disabled-password \
-    --gecos "Default user" \
-    --uid ${NB_UID} \
-    ${NB_USER}
+#RUN adduser --disabled-password \
+ #   --gecos "Default user" \
+ #   --uid ${NB_UID} \
+ #   ${NB_USER}
 WORKDIR ${HOME}
 USER ${USER}
 
@@ -74,5 +76,4 @@ RUN git clone https://github.com/jameslehoux/yt && \
 #download test datasets for OpenImpala
 RUN git clone https://github.com/jameslehoux/openimpala-jupyter
 
-
-
+CMD ["jupyter", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
