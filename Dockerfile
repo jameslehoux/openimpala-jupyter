@@ -63,7 +63,6 @@ RUN git clone https://github.com/jameslehoux/openimpala-jupyter
 #install conda
 ENV PATH="/root/miniconda3/bin:${PATH}"
 ARG PATH="/root/miniconda3/bin:${PATH}"
-RUN apt-get update
 
 RUN apt-get install -y wget && rm -rf /var/lib/apt/lists/*
 
