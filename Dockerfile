@@ -76,4 +76,5 @@ RUN git clone https://github.com/jameslehoux/yt && \
 #download test datasets for OpenImpala
 RUN git clone https://github.com/jameslehoux/openimpala-jupyter
 
+#launch jupyter notebooks
 CMD ["jupyter-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
