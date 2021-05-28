@@ -23,7 +23,7 @@ RUN conda install -c conda-forge jupyterhub-singleuser
 
 RUN pip3 install jupyter
 
-RUN export PATH="/opt/conda/bin:$PATH"
+RUN export PATH="/root/miniconda3/bin:$PATH"
 
 #launch jupyter notebooks
 CMD ["jupyter-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
