@@ -19,11 +19,11 @@ RUN wget \
     && bash Miniconda3-latest-Linux-x86_64.sh -b \
     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 RUN conda --version
-RUN conda install -c conda-forge jupyterhub-singleuser 
+RUN conda install -p /opt -c conda-forge jupyterhub-singleuser 
 
 RUN pip3 install jupyter
 
-RUN export PATH="/root/miniconda3:$PATH"
+RUN export PATH="/opt:$PATH"
 
 #launch jupyter notebooks
 CMD ["jupyter-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
