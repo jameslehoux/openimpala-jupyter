@@ -27,3 +27,4 @@ RUN export PATH="/opt/bin:$PATH"
 
 #launch jupyter notebooks
 #CMD ["jupyterhub-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+CMD ["jupyterhub-singleuser", "--port=8888", "--ip=0.0.0.0", "--debug"]
