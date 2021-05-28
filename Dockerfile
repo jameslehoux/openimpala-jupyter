@@ -26,4 +26,4 @@ RUN pip3 install jupyter
 RUN export PATH="/opt/bin:$PATH"
 
 #launch jupyter notebooks
-CMD ["jupyterhub-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
+#CMD ["jupyterhub-singleuser", "notebook", "--port=8888", "--no-browser", "--ip=0.0.0.0", "--allow-root"]
