@@ -19,9 +19,9 @@ RUN wget \
     && bash Miniconda3-latest-Linux-x86_64.sh -b \
     && rm -f Miniconda3-latest-Linux-x86_64.sh 
 RUN conda --version
-RUN conda install -p /opt -c conda-forge jupyterhub-singleuser 
+RUN conda install -p /opt -c conda-forge jupyterhub-singleuser=1.3.0 
 
-RUN pip3 install jupyter
+RUN pip3 install jupyter=1.3.0
 
 RUN export PATH="/opt/bin:$PATH"
 
