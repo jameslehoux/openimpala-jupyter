@@ -1,5 +1,5 @@
 # openimpala-jupyter
-Repository to host container and notebook files used for the OpenImpala Jupyter training materials
+Repository to host container and notebook files used for the OpenImpala Jupyter visualisation training materials using yt
 
 
 ## Citation
